@@ -147,6 +147,15 @@ h2{font-family:'Russo One',sans-serif;font-weight:400;font-size:clamp(24px,6.4vw
 .send{font-size:13.5px;margin-top:12px}
 .s-in{position:absolute!important;right:14px;bottom:18px;font-size:14px;transform:rotate(-12deg);margin:0!important}
 .today .sheet{padding-bottom:70px}
+.lead{font-size:16.5px;font-weight:700;margin-bottom:10px}
+.intro .type{margin-bottom:10px}
+.steps{display:grid;gap:8px;margin:14px 0}
+.step{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--ink);padding:8px 12px;box-shadow:3px 3px 0 var(--red)}
+.step b{flex:none;font-family:'Russo One',sans-serif;font-weight:400;font-size:28px;color:var(--red);width:26px;text-align:center}
+.step span{font-size:14.5px;line-height:1.3}.step em{font-style:normal;font-weight:700}
+.sign{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;font-family:'PT Mono',monospace;font-size:13px;font-style:italic;color:var(--brown)}
+.s-sign{font-size:14px;transform:rotate(-10deg);flex:none}
+@media (min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}.step{flex-direction:column;text-align:center}}
 .cipher{display:block;font-family:'PT Mono',monospace;font-weight:700;color:var(--red);word-spacing:6px;line-height:1.7;font-size:15px}
 /* сейфы */
 .safes{display:grid;grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:10px}
@@ -250,7 +259,17 @@ footer .logo{background:#fff;margin-bottom:8px}
 </header>
 <div class="ticker" aria-hidden="true"><div class="tk"><span>Внимание! Говорит Штаб</span><span>★</span><span>До операции 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Объект засекречен</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span><span>Внимание! Говорит Штаб</span><span>★</span><span>До операции 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Объект засекречен</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span></div></div>
 <main>
-<section class="folder reveal "><div class="tab">Как это работает · сейфы Штаба</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Календарь операции</h2>
+<section class="folder reveal intro"><div class="tab">Приказ № 1</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Товарищи!</h2>
+  <p class="type lead">10 декабря — операция «Новый год». Где она пройдёт и что там будет — совершенно секретно. Знает только Штаб.</p>
+  <p class="type">До операции Штаб выходит на связь. Ваша задача — выполнять задания, копить звёздочки и собирать улики. А самые внимательные попробуют первыми вычислить объект.</p>
+  <div class="steps">
+    <div class="step"><b>1</b><span>Каждый рабочий день открывается <em>новый сейф</em> с заданием</span></div>
+    <div class="step"><b>2</b><span>Выполнил — пришли ответ <em>лично Штабу</em> @(ник_штаба)</span></div>
+    <div class="step"><b>3</b><span>Получи <em>звёздочки</em>. 10 декабря они станут званиями</span></div>
+  </div>
+  <p class="type">Сводки, фото и голосования — в <a href="https://t.me/(канал)">канале Штаба</a>. Подпишитесь, чтобы не пропустить ни одного сейфа.</p>
+  <div class="sign"><span>Начальник штаба операции «Новый год»</span><span class="stamp s-sign">Штаб<br><small>утверждаю</small></span></div></div></section>
+<section class="folder reveal "><div class="tab">Сейфы Штаба</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Календарь операции</h2>
   <p class="hint">До 10 декабря Штаб каждый рабочий день открывает новый сейф. В сейфе — задание, факт из архива СССР, а иногда улика об объекте. Выполнил задание — получил звёздочки. Звёздочки 10 декабря превратятся в звания. Открытый сейф можно нажать и перечитать.</p>
   <div class="safes"><button class="safe open cur" data-i="0"><div class="dial"></div><b>19.11</b><small>Анкета допуска</small></button><div class="safe locked"><div class="dial"></div><b>24.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>26.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>27.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>30.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>01.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>02.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>03.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>04.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>07.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>08.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>09.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>10.12</b><small>закрыт</small></div></div>
   <div class="safe-view" id="sv" hidden></div></div></section>
