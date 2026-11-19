@@ -91,7 +91,7 @@ h1 .l1{display:block;font-size:clamp(64px,19vw,138px);color:var(--ink)}
 h1 .l2{display:inline-block;font-size:clamp(78px,24vw,172px);color:var(--red);transform:skewX(-8deg);text-shadow:5px 5px 0 var(--ink)}
 .band{background:var(--ink);color:var(--paper);margin:0 -40px 22px;padding:10px 40px;transform:rotate(-3deg);font-family:Oswald,sans-serif;font-weight:500;font-size:clamp(16px,4.6vw,22px);letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 6px 0 var(--red)}
 .redact{background:var(--paper);color:var(--paper);font-style:normal;letter-spacing:-2px;border-radius:1px}
-.icard .redact{background:var(--ink);color:var(--ink)}
+.icard .redact,.redact.dark{background:var(--ink);color:var(--ink)}
 .flip{display:flex;gap:8px;margin-bottom:22px}
 .flip div{flex:1;max-width:96px;background:linear-gradient(#25221f 0 50%,#1a1816 50%);color:#fff;border-radius:8px;text-align:center;padding:8px 0 6px;position:relative;box-shadow:0 4px 0 rgba(0,0,0,.35)}
 .flip div::after{content:'';position:absolute;left:0;right:0;top:calc(50% - 7px);height:1px;background:rgba(0,0,0,.6)}
@@ -245,7 +245,7 @@ footer .logo{background:#fff;margin-bottom:8px}
     <div class="bigstar"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path fill="#F2C14E" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z"/></svg></div>
     <div class="t-small">Штаб операции</div>
     <h1><span class="l1">Новый</span><span class="l2">год</span></h1>
-    <div class="band"><span>10 декабря · Объект: <i class="redact">██████████</i></span></div>
+    <div class="band"><span>10 декабря · Объект: Бункер</span></div>
     
     <div class="flip" id="count" aria-label="До операции">
       <div><b id="cd">21</b><small>дней</small></div><div><b id="ch">00</b><small>часов</small></div><div><b id="cm">00</b><small>минут</small></div><div><b id="cs">00</b><small>секунд</small></div>
@@ -257,12 +257,11 @@ footer .logo{background:#fff;margin-bottom:8px}
     </div>
   </div>
 </header>
-<div class="ticker" aria-hidden="true"><div class="tk"><span>Внимание! Говорит Штаб</span><span>★</span><span>До операции 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Объект засекречен</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span><span>Внимание! Говорит Штаб</span><span>★</span><span>До операции 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Объект засекречен</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span></div></div>
+<div class="ticker" aria-hidden="true"><div class="tk"><span>Внимание! Говорит Штаб</span><span>★</span><span>До операции 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span><span>Внимание! Говорит Штаб</span><span>★</span><span>До операции 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span></div></div>
 <main>
-
 <section class="folder reveal intro"><div class="tab">Приказ № 1</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Товарищи!</h2>
-  <p class="type lead">10 декабря — операция «Новый год». Где она пройдёт и что там будет — совершенно секретно. Знает только Штаб.</p>
-  <p class="type">До операции Штаб выходит на связь. Ваша задача — выполнять задания, копить звёздочки и собирать улики. А самые внимательные попробуют первыми вычислить объект.</p>
+  <p class="type lead">10 декабря — операция «Новый год». Начинаем в настоящем бункере. А вот куда мы отправимся после бункера и что там будет — совершенно секретно. Знает только Штаб.</p>
+  <p class="type">До операции Штаб выходит на связь. Ваша задача — выполнять задания, копить звёздочки и собирать улики о Ставке — месте, где пройдёт праздник. Самые внимательные попробуют вычислить её первыми.</p>
   <div class="steps">
     <div class="step"><b>1</b><span>Каждый рабочий день открывается <em>новый сейф</em> с заданием</span></div>
     <div class="step"><b>2</b><span>Выполнил — пришли ответ <em>лично Штабу</em> @(ник_штаба)</span></div>
@@ -270,8 +269,15 @@ footer .logo{background:#fff;margin-bottom:8px}
   </div>
   <p class="type">Сводки, фото и голосования — в <a href="https://t.me/(канал)">канале Штаба</a>. Подпишитесь, чтобы не пропустить ни одного сейфа.</p>
   <div class="sign"><span>Начальник штаба операции «Новый год»</span><span class="stamp s-sign">Штаб<br><small>утверждаю</small></span></div></div></section>
+<section class="folder reveal today"><div class="tab">Место сбора</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Объект: бункер</h2>
+  <div class="tele"><div class="tele-h">Срочно · всем фронтам</div><div class="tt">Бункер</div>
+  <p><b>Адрес:</b> (адрес бункера)</p><p><b>Сбор:</b> 10 декабря, (время), у входа</p>
+  <p><b>После бункера — Ставка:</b> <i class="redact dark">████████████</i> <small>засекречено</small></p>
+  </div>
+  <p class="type">Форма одежды — тёплая, обувь — удобная.</p>
+  <span class="stamp s-in">Рассекречено<br><small>Штаб · 19.11</small></span></div></section>
 <section class="folder reveal "><div class="tab">Сейфы Штаба</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Календарь операции</h2>
-  <p class="hint">До 10 декабря Штаб каждый рабочий день открывает новый сейф. В сейфе — задание, факт из архива СССР, а иногда улика об объекте. Выполнил задание — получил звёздочки. Звёздочки 10 декабря превратятся в звания. Открытый сейф можно нажать и перечитать.</p>
+  <p class="hint">До 10 декабря Штаб каждый рабочий день открывает новый сейф. В сейфе — задание, факт из архива СССР, а иногда улика о Ставке. Выполнил задание — получил звёздочки. Звёздочки 10 декабря превратятся в звания. Открытый сейф можно нажать и перечитать.</p>
   <div class="safes"><button class="safe open cur" data-i="0"><div class="dial"></div><b>19.11</b><small>Анкета допуска</small></button><div class="safe locked"><div class="dial"></div><b>24.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>26.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>27.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>30.11</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>01.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>02.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>03.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>04.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>07.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>08.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>09.12</b><small>закрыт</small></div><div class="safe locked"><div class="dial"></div><b>10.12</b><small>закрыт</small></div></div>
   <div class="safe-view" id="sv" hidden></div></div></section>
 <section class="folder reveal today"><div class="tab">Сейф дня открыт · 19.11</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Оформление допуска</h2>
@@ -279,15 +285,15 @@ footer .logo{background:#fff;margin-bottom:8px}
   <div class="fact"><div class="lbl">Факт дня · из архива СССР</div><p>Московское метро открылось 15 мая 1935 года. Первые поезда пошли от «Сокольников» до «Парка культуры» с ответвлением к «Смоленской».</p></div>
   <p class="send">Ответы и фото — лично Штабу: <b>@(ник_штаба)</b></p>
   <span class="stamp s-in">Принято<br><small>Штаб · 19.11</small></span></div></section>
-<section class="folder reveal "><div class="tab">Секция 3 · разведка</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Улики об объекте</h2>
-  <div class="cards"><div class="icard"><span class="no">№ 1</span><span class="dt">19.11</span><p>Объект старше любого из нас.</p></div><div class="icard lock"><span class="no">№ 2</span><span class="dt">26.11</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 26.11</small></span></div><div class="icard lock"><span class="no">№ 3</span><span class="dt">01.12</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 01.12</small></span></div><div class="icard lock"><span class="no">№ 4</span><span class="dt">03.12</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 03.12</small></span></div><div class="icard lock"><span class="no">№ 5</span><span class="dt">04.12</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 04.12</small></span></div></div>
-  <p class="note">Версии, где пройдёт операция, — лично Штабу в Telegram, не в комментарии. Первый, кто угадает объект, получит звание «Начальник разведки» и 3 звёздочки. Но — ни слова остальным!</p>
+<section class="folder reveal "><div class="tab">Секция 3 · разведка</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Где Ставка?</h2>
+  <div class="cards"><div class="icard"><span class="no">№ 1</span><span class="dt">19.11</span><p>После бункера мы отправимся в Ставку. Первая улика: Ставку назвали в честь короля. Правда, такого короля никогда не было.</p></div><div class="icard lock"><span class="no">№ 2</span><span class="dt">26.11</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 26.11</small></span></div><div class="icard lock"><span class="no">№ 3</span><span class="dt">01.12</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 01.12</small></span></div><div class="icard lock"><span class="no">№ 4</span><span class="dt">03.12</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 03.12</small></span></div><div class="icard lock"><span class="no">№ 5</span><span class="dt">04.12</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 04.12</small></span></div><div class="icard lock"><span class="no">№ 6</span><span class="dt">07.12</span><p><i class="redact">████████ ██████ ███████████</i></p><span class="stamp s-lock">Засекречено<br><small>до 07.12</small></span></div></div>
+  <p class="note">Где находится Ставка — место, куда мы отправимся после бункера? Версии — лично Штабу в Telegram, не в комментарии. Первый, кто назовёт Ставку, получит звание «Начальник разведки» и 3 звёздочки, остальные угадавшие — по 1. До 10 декабря Штаб ничего не подтверждает!</p>
   </div></section>
 <section class="folder reveal "><div class="tab">Секция 4 · сводка готовности</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Готовность операции</h2>
   <div class="pg"><div class="pg-l"><span>Оформлено допусков (анкеты)</span><b>0 / 40</b></div><div class="pg-b"><i style="width:0%"></i></div></div><div class="pg"><div class="pg-l"><span>Писем полевой почты</span><b>0 / 40</b></div><div class="pg-b"><i style="width:0%"></i></div></div>
   <p class="hint">Каждый боец без анкеты — это коллега без письма полевой почты. Анкета — <a href="https://forms.yandex.ru/(анкета)">здесь</a>.</p></div></section>
 <section class="folder reveal "><div class="tab">Секция 5 · личный состав</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Доска почёта</h2>
-  <p class="type">Звёздочки уже копятся в ведомости Штаба. Доска почёта откроется <b>1 декабря</b>: на ней появятся лучшие бойцы — под секретными позывными, без имён.</p>
+  <p class="type">Звёздочки уже копятся в ведомости Штаба. Доска почёта откроется <b>1 декабря</b>: в этот день Штаб сделает одну важную выдачу, и после неё на доске появятся лучшие бойцы. Без имён — у Штаба свои методы.</p>
   <div class="ranks"><div class="rk"><div class="pog"></div><div><b>0 ★</b><span>Рядовой новогоднего фронта</span></div></div><div class="rk"><div class="pog"><i></i></div><div><b>1–2 ★</b><span>Сержант салатной гвардии</span></div></div><div class="rk"><div class="pog"><i></i><i></i></div><div><b>3–4 ★</b><span>Лейтенант мандариновых войск</span></div></div><div class="rk"><div class="pog"><i></i><i></i><i></i></div><div><b>5–6 ★</b><span>Майор праздничного штаба</span></div></div><div class="rk"><div class="pog"><i></i><i></i><i></i><i></i></div><div><b>7+ ★</b><span>Полковник Ставки</span></div></div><div class="rk"><div class="pog"><i></i><i></i><i></i><i></i><svg class="big" viewBox="0 0 24 24" aria-hidden="true"><path fill="#F2C14E" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z"/></svg></div><div><b>№ 1 ★</b><span>Генерал Деда Мороза</span></div></div></div></div></section>
 <section class="folder reveal "><div class="tab">Секция 6 · шифровальный отдел</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Дешифратор</h2>
   <p class="hint">Шифр Штаба: каждая буква — её номер в алфавите. Ё — седьмая.</p>
@@ -308,7 +314,7 @@ footer .logo{background:#fff;margin-bottom:8px}
   <ol class="rules">
     <li><b>Задание.</b> Каждый рабочий день в канале Штаба — новое. Выполнил — пришли ответ лично Штабу.</li>
     <li><b>Ведомость.</b> Звёздочки записываются. 10 декабря они превратятся в звания.</li>
-    <li><b>Разведка.</b> Угадал объект — пиши Штабу лично. Первый станет «Начальником разведки».</li>
+    <li><b>Разведка.</b> Вычислил Ставку — пиши Штабу лично. Первый станет «Начальником разведки».</li>
     <li><b>Секретность.</b> Догадки и ответы — только лично Штабу. В общий чат — ни слова.</li>
   </ol></div></section>
 </main>
