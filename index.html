@@ -114,7 +114,7 @@ h1 .l2{display:inline-block;font-size:clamp(78px,24vw,172px);color:var(--red);tr
 /* бегущая строка */
 .ticker{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
 .tk{display:inline-block;padding:8px 0;animation:tick 30s linear infinite;font-family:Oswald,sans-serif;font-weight:500;font-size:15px;letter-spacing:2px;text-transform:uppercase}
-.tk span{margin:0 14px}
+.tk span{margin:0 14px}.tk b{font-weight:inherit}
 @keyframes tick{to{transform:translateX(-50%)}}
 /* ---------- досье ---------- */
 main{max-width:760px;margin:0 auto;padding:28px 14px 40px;background:
@@ -250,7 +250,7 @@ footer .logo{background:#fff;margin-bottom:8px}
     <div class="band"><span>10 декабря · Объект: <i class="redact">██████████</i></span></div>
     
     <div class="flip" id="count" aria-label="До съезда">
-      <div><b id="cd">21</b><small>дней</small></div><div><b id="ch">00</b><small>часов</small></div><div><b id="cm">00</b><small>минут</small></div><div><b id="cs">00</b><small>секунд</small></div>
+      <div><b id="cd">20</b><small>дней</small></div><div><b id="ch">00</b><small>часов</small></div><div><b id="cm">00</b><small>минут</small></div><div><b id="cs">00</b><small>секунд</small></div>
     </div>
     <div class="btns">
       <a class="btn red" href="https://t.me/(группа)"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z"/></svg>Группа Штаба</a>
@@ -259,7 +259,7 @@ footer .logo{background:#fff;margin-bottom:8px}
     </div>
   </div>
 </header>
-<div class="ticker" aria-hidden="true"><div class="tk"><span>Внимание! Говорит Штаб</span><span>★</span><span>До съезда 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span><span>Внимание! Говорит Штаб</span><span>★</span><span>До съезда 21 день</span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span></div></div>
+<div class="ticker" aria-hidden="true"><div class="tk"><span>Внимание! Говорит Штаб</span><span>★</span><span>До съезда <b class="tkd">20</b> <b class="tkw">дней</b></span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span><span>Внимание! Говорит Штаб</span><span>★</span><span>До съезда <b class="tkd">20</b> <b class="tkw">дней</b></span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span></div></div>
 <main>
 <section class="folder reveal intro"><div class="tab">Приказ № 1</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Товарищи!</h2>
   <p class="type lead">10 декабря — Закрытый съезд передовиков. Где он начнётся, куда мы отправимся потом и что там будет — совершенно секретно. Знает только Штаб.</p>
@@ -313,7 +313,7 @@ footer .logo{background:#fff;margin-bottom:8px}
 var T=new Date("2026-12-10T14:30:00+03:00").getTime();
 function p(n){return n<10?'0'+n:''+n}
 function t(){var d=T-Date.now(),c=document.getElementById('count');if(!c)return;if(d<=0){c.hidden=true;return}
-var s=Math.floor(d/1000);document.getElementById('cd').textContent=Math.floor(s/86400);
+var s=Math.floor(d/1000),D=Math.floor(s/86400);document.getElementById('cd').textContent=D;var W=D%10===1&&D%100!==11?'день':(D%10>=2&&D%10<=4&&(D%100<10||D%100>=20)?'дня':'дней');document.querySelectorAll('.tkd').forEach(function(e){e.textContent=D});document.querySelectorAll('.tkw').forEach(function(e){e.textContent=W});
 document.getElementById('ch').textContent=p(Math.floor(s%86400/3600));document.getElementById('cm').textContent=p(Math.floor(s%3600/60));document.getElementById('cs').textContent=p(s%60)}
 t();setInterval(t,1000);
 
