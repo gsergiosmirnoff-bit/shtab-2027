@@ -217,6 +217,7 @@ h2{font-family:'Russo One',sans-serif;font-weight:400;font-size:clamp(24px,6.4vw
 .opt.ok{background:var(--khaki);color:#fff;border-color:var(--khaki)}.opt.no{background:#d9d1c0;color:#777;border-color:#bbb;text-decoration:line-through}
 /* морзе */
 .morse{font-family:'PT Mono',monospace;font-size:26px;letter-spacing:3px;color:var(--red);min-height:40px;margin-top:12px;word-break:break-all}
+.mzt{margin-top:12px}.mzt summary{cursor:pointer;font-family:Oswald,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--red)}.mzt .abc span{font-size:12px;color:#333}
 .morse.on{text-shadow:0 0 8px rgba(179,18,31,.5)}
 /* галерея */
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
@@ -296,10 +297,7 @@ footer .logo{background:#fff;margin-bottom:8px}
   <p class="hint">Пять вопросов. Звёздочки не начисляются — это тренировка.</p>
   <ol class="quiz"><li><p>Что по традиции венчало верхушку советской ёлки?</p><div class="opts"><button class="opt" data-q="0" data-ok="1">Красная звезда</button><button class="opt" data-q="0" data-ok="0">Ангел</button><button class="opt" data-q="0" data-ok="0">Шпиль-сосулька</button></div></li><li><p>Какой город сегодня называют родиной Деда Мороза?</p><div class="opts"><button class="opt" data-q="1" data-ok="1">Великий Устюг</button><button class="opt" data-q="1" data-ok="0">Архангельск</button><button class="opt" data-q="1" data-ok="0">Вологда</button></div></li><li><p>В каком фильме герои работают в институте в Китежграде?</p><div class="opts"><button class="opt" data-q="2" data-ok="1">«Чародеи»</button><button class="opt" data-q="2" data-ok="0">«Карнавальная ночь»</button><button class="opt" data-q="2" data-ok="0">«Морозко»</button></div></li><li><p>Кто в «Иронии судьбы» по ошибке улетел в Ленинград?</p><div class="opts"><button class="opt" data-q="3" data-ok="0">Ипполит</button><button class="opt" data-q="3" data-ok="1">Женя Лукашин</button><button class="opt" data-q="3" data-ok="0">Павлик</button></div></li><li><p>Как называли главную новогоднюю ёлку страны, куда мечтали попасть все дети?</p><div class="opts"><button class="opt" data-q="4" data-ok="1">Кремлёвская ёлка</button><button class="opt" data-q="4" data-ok="0">Ёлка на Красной площади</button><button class="opt" data-q="4" data-ok="0">Царская ёлка</button></div></li></ol>
   <div class="out" id="quizOut"></div></div></section>
-<section class="folder reveal "><div class="tab">Секция 8 · радиоэфир</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Позывные Штаба</h2>
-  <p class="hint">Нажмите — Штаб выйдет в эфир азбукой Морзе. Что передаёт Штаб, догадаетесь сами.</p>
-  <button class="btn red" id="morse">▶ Включить эфир</button>
-  <div class="morse" id="morseOut" aria-live="polite"></div></div></section>
+
 
 <section class="folder reveal "><div class="tab">Устав</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Как заработать звёздочки</h2>
   <ol class="rules">
@@ -347,11 +345,10 @@ bs.forEach(function(x){x.classList.add(x.dataset.ok==='1'?'ok':'no')});if(b.data
 if(ans===bs.length+5-bs.length){var o=document.getElementById('quizOut');o.textContent=score+' из 5. '+(score===5?'Допуск оформлен! Вы готовы к съезду.':score>=3?'Хорошо, товарищ. Но в Штабе спросят строже.':'Повторите матчасть — Штаб в вас верит.');if(score===5)snow(30)}})})});
 
 // морзе
-var MZ={'А':'.-','Б':'-...','В':'.--','Г':'--.','Д':'-..','Е':'.','Ж':'...-','З':'--..','И':'..','Й':'.---','К':'-.-','Л':'.-..','М':'--','Н':'-.','О':'---','П':'.--.','Р':'.-.','С':'...','Т':'-','У':'..-','Ф':'..-.','Х':'....','Ц':'-.-.','Ч':'---.','Ш':'----','Щ':'--.-','Ы':'-.--','Ь':'-..-','Э':'..-..','Ю':'..--','Я':'.-.-'};
 var mb=document.getElementById('morse'),busy=false;
 if(mb)mb.addEventListener('click',function(){if(busy)return;busy=true;var AC=window.AudioContext||window.webkitAudioContext,ctx=AC?new AC():null,u=0.085,tm=ctx?ctx.currentTime+0.1:0,out=document.getElementById('morseOut');
-out.textContent='';out.classList.add('on');var seq=[],msg='С НОВЫМ ГОДОМ';
-msg.split('').forEach(function(ch){if(ch===' '){seq.push({gap:7});return}(MZ[ch]||'').split('').forEach(function(s){seq.push({s:s})});seq.push({gap:3})});
+out.textContent='';out.classList.add('on');var seq=[],code="... / -. --- .-- -.-- -- / --. --- -.. --- --";
+code.split(' / ').forEach(function(w,wi){if(wi)seq.push({gap:7});w.split(' ').forEach(function(l){l.split('').forEach(function(s){seq.push({s:s})});seq.push({gap:3})})});
 var delay=0;seq.forEach(function(x){if(x.gap){delay+=x.gap*u;setTimeout(function(){out.textContent+=x.gap===7?'  /  ':' '},delay*1000);return}
 var len=(x.s==='-'?3:1)*u;if(ctx){var o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=720;o.type='sine';g.gain.setValueAtTime(0,tm+delay);g.gain.linearRampToValueAtTime(.25,tm+delay+.005);g.gain.setValueAtTime(.25,tm+delay+len-.005);g.gain.linearRampToValueAtTime(0,tm+delay+len);o.connect(g);g.connect(ctx.destination);o.start(tm+delay);o.stop(tm+delay+len+.02)}
 (function(s,d){setTimeout(function(){out.textContent+=s==='-'?'—':'•'},d*1000)})(x.s,delay);delay+=len+u});
