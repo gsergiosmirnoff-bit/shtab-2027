@@ -293,8 +293,8 @@ footer .logo{background:#fff;margin-bottom:8px}
   <label class="lbl" for="enc">Зашифруйте своё имя</label>
   <input id="enc" class="inp" placeholder="Например: Иван" autocomplete="off"><div class="out" id="encOut">—</div>
   <p class="note">Перехваченная шифровка появится здесь 08.12.</p></div></section>
-<section class="folder reveal "><div class="tab">Секция 7 · проверка на допуск</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Тест для личного состава</h2>
-  <p class="hint">Пять вопросов. Звёздочки не начисляются — это тренировка.</p>
+<section class="folder reveal "><div class="tab">Секция 7 · разминка</div><div class="sheet"><svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v34a8 8 0 0 1-16 0V16" fill="none" stroke="#8C8C8C" stroke-width="2.4" stroke-linecap="round"/></svg><h2>Разминка для личного состава</h2>
+  <p class="hint">Пять вопросов для разминки. Звёздочки не начисляются — это тренировка перед съездом.</p>
   <ol class="quiz"><li><p>Что по традиции венчало верхушку советской ёлки?</p><div class="opts"><button class="opt" data-q="0" data-ok="1">Красная звезда</button><button class="opt" data-q="0" data-ok="0">Ангел</button><button class="opt" data-q="0" data-ok="0">Шпиль-сосулька</button></div></li><li><p>Какой город сегодня называют родиной Деда Мороза?</p><div class="opts"><button class="opt" data-q="1" data-ok="1">Великий Устюг</button><button class="opt" data-q="1" data-ok="0">Архангельск</button><button class="opt" data-q="1" data-ok="0">Вологда</button></div></li><li><p>В каком фильме герои работают в институте в Китежграде?</p><div class="opts"><button class="opt" data-q="2" data-ok="1">«Чародеи»</button><button class="opt" data-q="2" data-ok="0">«Карнавальная ночь»</button><button class="opt" data-q="2" data-ok="0">«Морозко»</button></div></li><li><p>Кто в «Иронии судьбы» по ошибке улетел в Ленинград?</p><div class="opts"><button class="opt" data-q="3" data-ok="0">Ипполит</button><button class="opt" data-q="3" data-ok="1">Женя Лукашин</button><button class="opt" data-q="3" data-ok="0">Павлик</button></div></li><li><p>Как называли главную новогоднюю ёлку страны, куда мечтали попасть все дети?</p><div class="opts"><button class="opt" data-q="4" data-ok="1">Кремлёвская ёлка</button><button class="opt" data-q="4" data-ok="0">Ёлка на Красной площади</button><button class="opt" data-q="4" data-ok="0">Царская ёлка</button></div></li></ol>
   <div class="out" id="quizOut"></div></div></section>
 
@@ -342,7 +342,7 @@ if(djb(norm(v))===2877042723){o.textContent='Верно, товарищ! Сро�
 var score=0,ans=0;
 document.querySelectorAll('.quiz li').forEach(function(li){var bs=li.querySelectorAll('.opt');bs.forEach(function(b){b.addEventListener('click',function(){if(li.dataset.done)return;li.dataset.done=1;ans++;
 bs.forEach(function(x){x.classList.add(x.dataset.ok==='1'?'ok':'no')});if(b.dataset.ok==='1')score++;
-if(ans===bs.length+5-bs.length){var o=document.getElementById('quizOut');o.textContent=score+' из 5. '+(score===5?'Допуск оформлен! Вы готовы к съезду.':score>=3?'Хорошо, товарищ. Но в Штабе спросят строже.':'Повторите матчасть — Штаб в вас верит.');if(score===5)snow(30)}})})});
+if(ans===bs.length+5-bs.length){var o=document.getElementById('quizOut');o.textContent=score+' из 5. '+(score===5?'Разминка прошла успешно! Это была тренировка — настоящие задания ждут в сейфах Штаба.':score>=3?'Неплохая разминка, товарищ! Но в Штабе спросят строже.':'Разминка окончена. Повторите матчасть — Штаб в вас верит!');if(score===5)snow(30)}})})});
 
 // морзе
 var mb=document.getElementById('morse'),busy=false;
