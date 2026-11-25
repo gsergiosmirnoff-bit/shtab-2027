@@ -159,6 +159,12 @@ h2{font-family:'Russo One',sans-serif;font-weight:400;font-size:clamp(24px,6.4vw
 .s-sign{font-size:14px;transform:rotate(-10deg);flex:none}
 @media (min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}.step{flex-direction:column;text-align:center}}
 .cipher{display:block;font-family:'PT Mono',monospace;font-weight:700;color:var(--red);word-spacing:6px;line-height:1.7;font-size:15px}
+.mail-contact{margin:14px 0 0;max-width:390px;color:inherit}
+.mail-contact label,.mail-contact small{display:block;font-size:13px}
+.mail-controls{display:flex;gap:6px;margin-top:5px}
+.mail-controls input,.mail-controls button{font:inherit;border-radius:4px;border:1px solid #e0bd80;padding:7px 9px}
+.mail-controls input{flex:1;min-width:0;color:#272019;background:#fff7e8}
+.mail-controls button{background:#f2c14e;color:#272019;cursor:pointer}
 /* сейфы */
 .safes{display:grid;grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:10px}
 .safe{position:relative;border:0;text-align:left;font:inherit;padding:10px 10px 10px;min-height:104px;border-radius:6px;color:#fff;cursor:pointer;
@@ -260,6 +266,11 @@ footer .logo{background:#fff;margin-bottom:8px}
       <a class="btn line" href="https://t.me/+g_bxqM19N9YxMzRi">Написать Штабу в Telegram</a>
       <a class="btn line" href="mailto:kordakova.an@gulfstream.ru">Нет Telegram? Написать на почту</a>
     </div>
+    <div class="mail-contact">
+      <label for="shtab-email">Почта Штаба</label>
+      <div class="mail-controls"><input id="shtab-email" type="text" value="kordakova.an@gulfstream.ru" readonly spellcheck="false"><button type="button" id="copy-shtab-email">Скопировать</button></div>
+      <small id="mail-copy-status" aria-live="polite"></small>
+    </div>
   </div>
 </header>
 <div class="ticker" aria-hidden="true"><div class="tk"><span>Внимание! Говорит Штаб</span><span>★</span><span>До съезда <b class="tkd">15</b> <b class="tkw">дней</b></span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span><span>Внимание! Говорит Штаб</span><span>★</span><span>До съезда <b class="tkd">15</b> <b class="tkw">дней</b></span><span>★</span><span>Звёздочки начисляются</span><span>★</span><span>Ставка засекречена</span><span>★</span><span>Ждите указаний Штаба</span><span>★</span></div></div>
@@ -329,6 +340,18 @@ t();setInterval(t,1000);
 var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
 document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('in')});
 
+var emailField=document.getElementById('shtab-email');
+var copyEmail=document.getElementById('copy-shtab-email');
+if(emailField && copyEmail){
+  copyEmail.addEventListener('click',async function(){
+    var status=document.getElementById('mail-copy-status');
+    try {
+      if(navigator.clipboard) await navigator.clipboard.writeText(emailField.value);
+      else { emailField.focus(); emailField.select(); if(!document.execCommand('copy')) throw new Error('copy'); }
+      status.textContent='Адрес скопирован.';
+    } catch(e){ emailField.focus(); emailField.select(); status.textContent='Адрес выделен. Скопируйте его вручную.'; }
+  });
+}
 // сейфы
 var SD={"0":{"dd":"23.11","s":"Оформление допуска","t":"Задание 1. <a href=\"https://forms.yandex.ru/u/6afeef0395add54a07bb2c3c/\">Анкета допуска</a>","x":"Ответьте на 6 вопросов анкеты до 30 ноября — это займёт 5 минут. Ответы засекречены до съезда — на вечере они превратятся в игру, а ваши «спасибо» Штаб доставит адресатам лично. Первые пять, кто ответит, получат по 3 звёздочки!","st":"3 — первым пяти, остальным по 1","f":"Московское метро открылось 15 мая 1935 года. Первые поезда пошли от «Сокольников» до «Парка культуры» с ответвлением к «Смоленской»."},"1":{"dd":"25.11","s":"Допуск оформлен не у всех","t":"Задание 1. <a href=\"https://forms.yandex.ru/u/6afeef0395add54a07bb2c3c/\">Анкета допуска</a>","x":"Пять минут — и допуск оформлен.","st":"+1 звёздочка","f":"Первый массовый советский телевизор КВН-49 назван по первым буквам фамилий создателей: Кенигсон, Варшавский, Николаевский. В народе его расшифровывали иначе: «Купил, Включил, Не работает»."}};
 var sv=document.getElementById('sv');
